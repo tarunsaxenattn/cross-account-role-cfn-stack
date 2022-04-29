@@ -1,0 +1,23 @@
+Resources: 
+  ROLE: 
+    Type: 'AWS::IAM::Role' 
+    Properties: 
+      RoleName: cross-account-role
+      ManagedPolicyArns: 
+        - 'arn:aws:iam::aws:policy/ReadOnlyAccess' 
+      AssumeRolePolicyDocument: 
+        Version: 2012-10-17 
+        Statement: 
+          - Effect: Allow 
+            Principal: 
+              AWS: '<SOURCE AWS ACCOUNT NUMBER>' 
+            Action: 'sts:AssumeRole' 
+Outputs: 
+  ROLENAME: 
+    Description: The following role has been created for cross account access 
+    Value: !Ref ROLE 
+  ROLEARN: 
+    Description: The ARN for the role 
+    Value: !GetAtt  
+      - ROLE 
+      - Arn
