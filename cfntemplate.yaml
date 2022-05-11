@@ -5,6 +5,8 @@ Resources:
       RoleName: cross-account-role
       ManagedPolicyArns: 
         - 'arn:aws:iam::aws:policy/ReadOnlyAccess' 
+        - 'arn:aws:iam::aws:policy/AWSPriceListServiceFullAccess'
+        - 'pricing:GetProducts'
       AssumeRolePolicyDocument: 
         Version: 2012-10-17 
         Statement: 
